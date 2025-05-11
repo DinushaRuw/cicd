@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "782870005544",
+    "project_id": "relaxify-fdf5c",
+    "storage_bucket": "relaxify-fdf5c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782870005544:android:f9bcd2971efe195385f21d",
+        "android_client_info": {
+          "package_name": "com.example.relaxify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0861a8F_oxadQeAJtEkUXLWP_NgBtJH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
