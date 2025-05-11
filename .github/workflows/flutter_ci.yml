@@ -1,4 +1,4 @@
- name: Flutter Web CI/CD
+name: Flutter Web CI/CD
 
 on:
   push:
@@ -34,4 +34,5 @@ jobs:
       # Build the Flutter web app
       - name: Build Flutter Web App
         run: flutter build web
- 
+
+      
