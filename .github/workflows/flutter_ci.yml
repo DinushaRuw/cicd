@@ -1,41 +1,44 @@
- name: Flutter CI
+name: Flutter Web CI/CD
 
 on:
   push:
     branches:
-      - master
+      - main  # Trigger on push to the main branch
   pull_request:
     branches:
-      - master
+      - main  # Trigger on pull requests to the main branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout code from the repository
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
+      # Set up Flutter environment
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.29.0'
+          flutter-version: '3.27.4'
 
+      # Install dependencies
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Analyze project
-        run: flutter analyze
-
+      # Run tests (optional)
       - name: Run tests
         run: flutter test
 
-      - name: Build Flutter app
-        run: flutter build apk # or flutter build ios if targeting iOS
+      # Build the Flutter web app
+      - name: Build Flutter Web App
+        run: flutter build web
 
-      - name: Upload build artifact (optional)
-        if: success()
-        uses: actions/upload-artifact@v3
+      # Deploy to Firebase (optional)
+      - name: Deploy to Firebase
+        uses: wzieba/Firebase-Deploy-Action@v0.2.0
         with:
-          name: flutter-build
-          path: build/app/outputs/flutter-apk/app-release.apk # Change this based on your target platform and build path
+          token: ${{ secrets.FIREBASE_TOKEN }}
+          project_id: calm-space-e8c20  # Replace with your Firebase project ID
+          target: hosting  # Replace with your Firebase hosting target (usually 'hosting')
