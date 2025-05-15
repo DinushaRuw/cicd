@@ -3,10 +3,10 @@ name: Flutter Web CI/CD
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch
+      - master  # Trigger on push to the master branch
   pull_request:
     branches:
-      - main  # Trigger on pull requests to the main branch
+      - master  # Trigger on pull requests to the master branch
 
 jobs:
   build:
@@ -34,5 +34,3 @@ jobs:
       # Build the Flutter web app
       - name: Build Flutter Web App
         run: flutter build web
-
-      
