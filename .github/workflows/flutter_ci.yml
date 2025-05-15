@@ -3,34 +3,29 @@ name: Flutter Web CI/CD
 on:
   push:
     branches:
-      - master  # Trigger on push to the master branch
+      - master
   pull_request:
     branches:
-      - master  # Trigger on pull requests to the master branch
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout code from the repository
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Set up Flutter environment
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0'
+          flutter-version: '3.22.1'  # Dart 3.7.0+ included
 
-      # Install dependencies
       - name: Install dependencies
         run: flutter pub get
 
-      # Run tests (optional)
       - name: Run tests
         run: flutter test
 
-      # Build the Flutter web app
       - name: Build Flutter Web App
         run: flutter build web
